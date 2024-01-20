@@ -1,0 +1,64 @@
+﻿<Window x:Class="Diabetic_Diary.Views.Menu"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Diabetic_Diary.ViewModels"
+        mc:Ignorable="d"
+        Title="Главное меню" 
+        Height="400" Width="270" 
+        Icon="/Resource/icon.png" 
+        ResizeMode="CanMinimize" 
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <vm:Menu/>
+    </Window.DataContext>
+
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF404040" Offset="0"/>
+            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="#FF2B2B2B" Offset="0.5"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="86"/>
+
+        </Grid.RowDefinitions>
+
+        <Button x:Name="NewRecordBtn"
+            Command="{Binding OpenNewRecordWindowCommand}"
+            Style="{DynamicResource MaterialDesignFloatingActionButton}"
+            Content="{materialDesign:PackIcon NotePlusOutline}"
+            Cursor="Hand"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top"
+            Margin="0,10,0,0" 
+            Grid.Row="1" 
+            Height="40" Width="40"/>
+
+        <Button x:Name="HistoryBtn"
+            Command="{Binding OpenHistoryWindowCommand}"
+            Style="{DynamicResource MaterialDesignFloatingActionLightButton}"
+            Content="{materialDesign:PackIcon History}"
+            Cursor="Hand"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0,76,0,0" 
+            Grid.Row="1" 
+            Height="40" Width="40" Foreground="White"/>
+
+    </Grid>
+</Window>
