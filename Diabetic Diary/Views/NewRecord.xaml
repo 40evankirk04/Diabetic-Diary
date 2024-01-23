@@ -1,5 +1,5 @@
 ﻿<Window x:Class="Diabetic_Diary.Views.NewRecord"
-                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
@@ -11,13 +11,13 @@
         xmlns:vm="clr-namespace:Diabetic_Diary.ViewModels"
         mc:Ignorable="d"
         Title="Новая запись" 
-        Height="400" Width="270" 
-        Icon="/Resource/icon.png" 
+        Height="450" Width="300" 
+        Icon="/Resource/blooddrop.ico" 
         ResizeMode="NoResize" 
         ShowInTaskbar="False">
 
     <Window.DataContext>
-        <vm:Menu/>
+        <vm:NewRecord/>
     </Window.DataContext>
 
     <Window.Background>
@@ -28,8 +28,192 @@
         </LinearGradientBrush>
     </Window.Background>
 
+    <Window.Resources>
+
+        <Style x:Key="ComboboxButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="False"/>
+            <Setter Property="Background" Value="#FFFF646F"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To="2,2,0,0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TB" TargetType="TextBox">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="BorderBrush" Value="#FFFC4455"/>
+            <Setter Property="CaretBrush" Value="#FFFC4455"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+
+                        <Grid x:Name="root" Height="{TemplateBinding Height}" 
+                              Width="{TemplateBinding Width}" SnapsToDevicePixels="True">
+                            <Border x:Name="Background" BorderThickness="1" CornerRadius="10"
+                                    Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}"/>
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                          BorderThickness="1"
+                                          Padding="{TemplateBinding Padding}" 
+                                          IsTabStop="False"
+                                          TextElement.Foreground="{TemplateBinding Foreground}" 
+                                          Background="Transparent"/>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
 
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+
+        </Grid.RowDefinitions>
+
+        <Image 
+            Grid.Row="0" 
+            Source="/Resource/logo.png" 
+            Stretch="Uniform" 
+            Margin="30,12,30,12"/>
+
+        <TextBox x:Name="Date" Grid.Row="1" Style="{StaticResource TB}"/>
+        <TextBlock IsHitTestVisible="False" FontSize="13" Text="Дата: dd.mm.yyyy"
+                   Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="#FF797979">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=Date}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <TextBox x:Name="Time" Grid.Row="2" Style="{StaticResource TB}"/>
+        <TextBlock IsHitTestVisible="False" FontSize="13" Text="Время: hh:mm"
+                   Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="#FF797979">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=Time}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <TextBox x:Name="SugarValue" Grid.Row="3" Style="{StaticResource TB}"/>
+        <TextBlock IsHitTestVisible="False" FontSize="13" Text="Значение сахара"
+                   Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="#FF797979">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=SugarValue}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <TextBox x:Name="EatenBreadUnits" Grid.Row="4" Style="{StaticResource TB}"/>
+        <TextBlock IsHitTestVisible="False" FontSize="13" Text="Кол-во ХЕ"
+                   Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="#FF797979">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=EatenBreadUnits}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <TextBox x:Name="DeliveredInsulinUnits" Grid.Row="5" Style="{StaticResource TB}"/>
+        <TextBlock IsHitTestVisible="False" FontSize="13" Text="Кол-во инсулина"
+                   Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="#FF797979">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=DeliveredInsulinUnits}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <Button Grid.Row="6"
+                Command=""
+                ToolTip="Новая запись"
+                Style="{DynamicResource MaterialDesignToolButton}"
+                Content="Применить"
+                FontSize="11.5"
+                Cursor="Hand"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Height="48" Width="86" BorderBrush="#FFFC4455" FontFamily="Century Gothic">
+            
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFC4455" Offset="1"/>
+                    <GradientStop Color="#FFFF646F" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+        </Button>
     </Grid>
 </Window>
 
