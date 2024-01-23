@@ -11,8 +11,8 @@
         xmlns:vm="clr-namespace:Diabetic_Diary.ViewModels"
         mc:Ignorable="d"
         Title="Главное меню" 
-        Height="400" Width="270" 
-        Icon="/Resource/icon.png" 
+        Height="450" Width="300" 
+        Icon="/Resource/blooddrop.ico" 
         ResizeMode="CanMinimize" 
         WindowStartupLocation="CenterScreen">
 
@@ -28,37 +28,59 @@
         </LinearGradientBrush>
     </Window.Background>
 
-    <Grid>
+    <Grid Width="300" Height="450" HorizontalAlignment="Center">
 
         <Grid.RowDefinitions>
 
             <RowDefinition Height="100"/>
             <RowDefinition Height="200"/>
-            <RowDefinition Height="86"/>
 
         </Grid.RowDefinitions>
 
         <Button x:Name="NewRecordBtn"
-            Command="{Binding OpenNewRecordWindowCommand}"
-            Style="{DynamicResource MaterialDesignFloatingActionButton}"
-            Content="{materialDesign:PackIcon NotePlusOutline}"
-            Cursor="Hand"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Top"
-            Margin="0,10,0,0" 
-            Grid.Row="1" 
-            Height="40" Width="40"/>
+                Command="{Binding OpenNewRecordWindowCommand}"
+                ToolTip="Новая запись"
+                Style="{DynamicResource MaterialDesignFloatingActionButton}"
+                Content="{materialDesign:PackIcon NotePlusOutline}"
+                Cursor="Hand"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top"
+                Margin="0,44,0,0" 
+                Grid.Row="1" 
+                Height="40" Width="40" BorderBrush="#FFFC4455">
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFC4455" Offset="1"/>
+                    <GradientStop Color="#FFFF646F" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
         <Button x:Name="HistoryBtn"
-            Command="{Binding OpenHistoryWindowCommand}"
-            Style="{DynamicResource MaterialDesignFloatingActionLightButton}"
-            Content="{materialDesign:PackIcon History}"
-            Cursor="Hand"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Margin="0,76,0,0" 
-            Grid.Row="1" 
-            Height="40" Width="40" Foreground="White"/>
+                Command="{Binding OpenHistoryWindowCommand}"
+                ToolTip="История"
+                Style="{DynamicResource MaterialDesignFloatingActionLightButton}"
+                Content="{materialDesign:PackIcon History}"
+                Cursor="Hand"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" 
+                Grid.Row="1" 
+                Height="40" Width="40" Foreground="White" BorderBrush="#FFFC4455" Margin="0,100,0,0">
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFC4455" Offset="1"/>
+                    <GradientStop Color="#FFFF646F" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Image 
+            Grid.Row="0" 
+            Source="/Resource/logo.png" 
+            Stretch="Uniform" 
+            Margin="30,12,30,12"/>
 
     </Grid>
 </Window>

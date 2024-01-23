@@ -12,7 +12,7 @@
         mc:Ignorable="d"
         Title="История" 
         Height="400" Width="500" 
-        Icon="/Resource/icon.png" 
+        Icon="/Resource/blooddrop.ico" 
         ResizeMode="NoResize" ShowInTaskbar="False">
 
     <Window.DataContext>
