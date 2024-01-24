@@ -96,7 +96,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid IsManipulationEnabled="True">
 
         <Grid.RowDefinitions>
 
@@ -106,7 +106,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
 
@@ -116,10 +116,11 @@
             Stretch="Uniform" 
             Margin="30,12,30,12"/>
 
-        <TextBox x:Name="Date" Grid.Row="1" Style="{StaticResource TB}"/>
-        <TextBlock IsHitTestVisible="False" FontSize="13" Text="Дата: dd.mm.yyyy"
+        <TextBox x:Name="Date" Grid.Row="1" Style="{StaticResource TB}" FontFamily="Century Gothic"
+        Text="{Binding Date}"/>
+        <TextBlock IsHitTestVisible="False" FontSize="11" Text="Дата dd.mm.yyyy"
                    Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Foreground="#FF797979">
+                   Foreground="#FF797979" FontFamily="Century Gothic">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -132,10 +133,11 @@
             </TextBlock.Style>
         </TextBlock>
 
-        <TextBox x:Name="Time" Grid.Row="2" Style="{StaticResource TB}"/>
-        <TextBlock IsHitTestVisible="False" FontSize="13" Text="Время: hh:mm"
+        <TextBox x:Name="Time" Grid.Row="2" Style="{StaticResource TB}" FontFamily="Century Gothic"
+                 Text="{Binding Time}"/>
+        <TextBlock IsHitTestVisible="False" FontSize="11" Text="Время: hh:mm"
                    Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Foreground="#FF797979">
+                   Foreground="#FF797979" FontFamily="Century Gothic">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -148,10 +150,11 @@
             </TextBlock.Style>
         </TextBlock>
 
-        <TextBox x:Name="SugarValue" Grid.Row="3" Style="{StaticResource TB}"/>
-        <TextBlock IsHitTestVisible="False" FontSize="13" Text="Значение сахара"
+        <TextBox x:Name="SugarValue" Grid.Row="3" Style="{StaticResource TB}" FontFamily="Century Gothic"
+                 Text="{Binding SugarValue}"/>
+        <TextBlock IsHitTestVisible="False" FontSize="11" Text="Значение сахара"
                    Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Foreground="#FF797979">
+                   Foreground="#FF797979" FontFamily="Century Gothic">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -164,10 +167,11 @@
             </TextBlock.Style>
         </TextBlock>
 
-        <TextBox x:Name="EatenBreadUnits" Grid.Row="4" Style="{StaticResource TB}"/>
-        <TextBlock IsHitTestVisible="False" FontSize="13" Text="Кол-во ХЕ"
+        <TextBox x:Name="EatenBreadUnits" Grid.Row="4" Style="{StaticResource TB}" FontFamily="Century Gothic"
+                 Text="{Binding EatenBreadUnits}"/>
+        <TextBlock IsHitTestVisible="False" FontSize="11" Text="Кол-во ХЕ"
                    Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Foreground="#FF797979">
+                   Foreground="#FF797979" FontFamily="Century Gothic">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -180,10 +184,11 @@
             </TextBlock.Style>
         </TextBlock>
 
-        <TextBox x:Name="DeliveredInsulinUnits" Grid.Row="5" Style="{StaticResource TB}"/>
-        <TextBlock IsHitTestVisible="False" FontSize="13" Text="Кол-во инсулина"
+        <TextBox x:Name="DeliveredInsulinUnits" Grid.Row="5" Style="{StaticResource TB}" FontFamily="Century Gothic"
+                 Text="{Binding DeliveredInsulinUnits}"/>
+        <TextBlock IsHitTestVisible="False" FontSize="11" Text="Кол-во инсулина"
                    Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Foreground="#FF797979">
+                   Foreground="#FF797979" FontFamily="Century Gothic">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -196,17 +201,17 @@
             </TextBlock.Style>
         </TextBlock>
 
-        <Button Grid.Row="6"
-                Command=""
-                ToolTip="Новая запись"
+        <Button Command="{Binding SaveCommand}"
+                Grid.Row="6"
+                ToolTip="Сохранить запись"
                 Style="{DynamicResource MaterialDesignToolButton}"
-                Content="Применить"
+                Content="Сохранить"
                 FontSize="11.5"
                 Cursor="Hand"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center" 
-                Height="48" Width="86" BorderBrush="#FFFC4455" FontFamily="Century Gothic">
-            
+                Height="48" Width="99" BorderBrush="#FFFC4455" FontFamily="Century Gothic">
+
             <Button.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFC4455" Offset="1"/>

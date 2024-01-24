@@ -11,7 +11,7 @@
         xmlns:vm="clr-namespace:Diabetic_Diary.ViewModels"
         mc:Ignorable="d"
         Title="История" 
-        Height="400" Width="500" 
+        Height="450" Width="500" 
         Icon="/Resource/blooddrop.ico" 
         ResizeMode="NoResize" ShowInTaskbar="False">
 

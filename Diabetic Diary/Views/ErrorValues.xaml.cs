@@ -3,11 +3,11 @@
 namespace Diabetic_Diary.Views
 {
     /// <summary>
-    /// Логика взаимодействия для NewRecord.xaml
+    /// Логика взаимодействия для ErrorValues.xaml
     /// </summary>
-    public partial class NewRecord : Window
+    public partial class ErrorValues : Window
     {
-        public NewRecord()
+        public ErrorValues()
         {
             InitializeComponent();
         }

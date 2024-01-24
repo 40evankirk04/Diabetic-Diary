@@ -34,18 +34,25 @@
 
             <RowDefinition Height="100"/>
             <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
 
+        <TextBlock
+            HorizontalAlignment="Center" Grid.Row="1" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Foreground="#FF797979" FontFamily="Century Gothic" FontSize="11" Text="Новая запись" Margin="0,78,0,0"/>
+
         <Button x:Name="NewRecordBtn"
                 Command="{Binding OpenNewRecordWindowCommand}"
-                ToolTip="Новая запись"
+                ToolTip="Сделать новую запись"
                 Style="{DynamicResource MaterialDesignFloatingActionButton}"
                 Content="{materialDesign:PackIcon NotePlusOutline}"
                 Cursor="Hand"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Top"
-                Margin="0,44,0,0" 
+                Margin="0,29,0,0" 
                 Grid.Row="1" 
                 Height="40" Width="40" BorderBrush="#FFFC4455">
 
@@ -57,16 +64,24 @@
             </Button.Background>
         </Button>
 
+        <TextBlock 
+            HorizontalAlignment="Center" 
+            Grid.Row="1" 
+            TextWrapping="Wrap" 
+            Text="История" VerticalAlignment="Top" 
+            Foreground="#FF797979" Margin="0,174,0,0" 
+            FontFamily="Century Gothic" FontSize="10.5"/>
+
         <Button x:Name="HistoryBtn"
                 Command="{Binding OpenHistoryWindowCommand}"
-                ToolTip="История"
+                ToolTip="Просмотреть историю"
                 Style="{DynamicResource MaterialDesignFloatingActionLightButton}"
                 Content="{materialDesign:PackIcon History}"
                 Cursor="Hand"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top" 
                 Grid.Row="1" 
-                Height="40" Width="40" Foreground="White" BorderBrush="#FFFC4455" Margin="0,100,0,0">
+                Height="40" Width="40" Foreground="White" BorderBrush="#FFFC4455" Margin="0,125,0,0">
 
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
