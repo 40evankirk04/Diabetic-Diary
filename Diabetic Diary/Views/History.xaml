@@ -11,13 +11,9 @@
         xmlns:vm="clr-namespace:Diabetic_Diary.ViewModels"
         mc:Ignorable="d"
         Title="История" 
-        Height="450" Width="500" 
+        Height="450" Width="540" 
         Icon="/Resource/blooddrop.ico" 
         ResizeMode="NoResize" ShowInTaskbar="False">
-
-    <Window.DataContext>
-        <vm:Menu/>
-    </Window.DataContext>
 
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -28,14 +24,12 @@
     </Window.Background>
 
     <Grid>
-        <DataGrid d:ItemsSource="{Binding }" Foreground="#DD000000">
-            <DataGrid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF404040" Offset="0"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                    <GradientStop Color="#FF2B2B2B" Offset="0.5"/>
-                </LinearGradientBrush>
-            </DataGrid.Background>
+
+        <DataGrid ItemsSource="{Binding Records}" 
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  CanUserResizeRows="False"
+                  IsReadOnly="True" Foreground="#DDFF0000">
         </DataGrid>
 
     </Grid>
