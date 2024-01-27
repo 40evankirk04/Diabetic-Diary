@@ -1,0 +1,49 @@
+﻿<Window x:Class="Diabetic_Diary.Views.Success"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Diabetic_Diary.ViewModels"
+        mc:Ignorable="d"
+        Title="Успешно" 
+        Height="200" Width="300" 
+        Icon="/Resource/blooddrop.ico" 
+        ResizeMode="NoResize" 
+        ShowInTaskbar="False" 
+        WindowStartupLocation="CenterScreen" 
+        Topmost="True">
+
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF404040" Offset="0"/>
+            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="#FF2B2B2B" Offset="0.5"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid Margin="0,-15,0,0">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="59"/>
+            <RowDefinition/>
+            <RowDefinition Height="59"/>
+
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1"
+            HorizontalAlignment="Center" 
+            TextWrapping="Wrap" 
+            Text="Успешно сохранено" 
+            VerticalAlignment="Center"
+            FontSize="12"
+            FontFamily="Century Gothic" Foreground="#DDFFFFFF" Width="130" Height="14"/>
+
+    </Grid>
+
+</Window>
