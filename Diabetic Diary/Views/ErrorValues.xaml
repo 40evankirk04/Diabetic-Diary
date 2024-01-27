@@ -15,7 +15,7 @@
         Icon="/Resource/blooddrop.ico" 
         ResizeMode="NoResize" 
         ShowInTaskbar="False" 
-        WindowStartupLocation="CenterOwner" 
+        WindowStartupLocation="CenterScreen" 
         Topmost="True">
 
     <Window.Background>
@@ -26,29 +26,28 @@
         </LinearGradientBrush>
     </Window.Background>
 
-    <Grid>
+    <Grid HorizontalAlignment="Center" Width="300" Margin="0,-15,0,0">
 
         <Grid.RowDefinitions>
 
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="59"/>
+            <RowDefinition/>
+            <RowDefinition Height="59"/>
 
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="1" FontFamily="Century Gothic"
-                   HorizontalAlignment="Center" 
-                   TextWrapping="WrapWithOverflow" 
-                   Text="Проверьте корректность введённых данных" 
-                   VerticalAlignment="Center" Width="270" Foreground="White"/>
+        <TextBlock 
+            Grid.Row="1" 
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Century Gothic" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Height="47" Width="220" 
+            TextWrapping="WrapWithOverflow" 
+            Text="Проверьте значения в соответствии с форматированием" 
+            Margin="0,24,0,0"/>
 
-        <TextBlock Grid.Row="2" FontFamily="Century Gothic"
-           HorizontalAlignment="Center" 
-           TextWrapping="WrapWithOverflow" 
-           Text="в соответствии с форматированием" 
-           VerticalAlignment="Center" Width="230" Foreground="White"/>
     </Grid>
 
 </Window>
