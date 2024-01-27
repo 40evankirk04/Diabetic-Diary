@@ -4,67 +4,101 @@ using System.Runtime.CompilerServices;
 using Diabetic_Diary.Models.Record_Data;
 using Diabetic_Diary.Models.Database;
 using Diabetic_Diary.Views;
+using System.Windows.Controls;
+using System.Globalization;
 
 namespace Diabetic_Diary.ViewModels
 {
-    class NewRecord : INotifyPropertyChanged
+    internal class NewRecord : INotifyPropertyChanged
     {
         private string? _date;
-        public string Date
+        public string? Date
         {
             get => _date;
 
             set
             {
-                _date = value;
+                if (value == "")
+                    _date = null;
+                else
+                    _date = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        private TextBox? _dateTB;
+        public TextBox? DateTB
+        {
+            get => _dateTB;
+
+            set
+            {
+                _dateTB = value;
                 OnPropertyChanged();
             }
         }
 
         private string? _time;
-        public string Time
+        public string? Time
         {
             get => _time;
 
             set
             {
-                _time = value;
+                if (value == "")
+                    _time = null;
+                else
+                    _time = value;
+
                 OnPropertyChanged();
             }
         }
 
         private string? _sugarValue;
-        public string SugarValue
+        public string? SugarValue
         {
             get => _sugarValue;
 
             set
             {
-                _sugarValue = value;
+                if (value == "")
+                    _sugarValue = null;
+                else
+                    _sugarValue = value;
+
                 OnPropertyChanged();
             }
         }
 
         private string? _eatenBreadUnits;
-        public string EatenBreadUnits
+        public string? EatenBreadUnits
         {
             get => _eatenBreadUnits;
 
             set
-            {
-                _eatenBreadUnits = value;
+            {   
+                if (value == "")
+                    _eatenBreadUnits = null;
+                else
+                    _eatenBreadUnits = value;
+
                 OnPropertyChanged();
             }
         }
 
         private string? _deliveredInsulinUnits;
-        public string DeliveredInsulinUnits
+        public string? DeliveredInsulinUnits
         {
             get => _deliveredInsulinUnits;
 
             set
             {
-                _deliveredInsulinUnits = value;
+                if (value == "")
+                    _deliveredInsulinUnits = null;
+                else
+                    _deliveredInsulinUnits = value;
+
                 OnPropertyChanged();
             }
         }
@@ -74,34 +108,61 @@ namespace Diabetic_Diary.ViewModels
         {
             get
             {
-                return _saveCommand ??= new RelayCommand(obj => 
-                {
-                    var inputedData = new InputedData(Date, Time, SugarValue, EatenBreadUnits, DeliveredInsulinUnits);
-
-                    if (inputedData.IsCorrect)
-                    {
-                        var convertedData = new ConvertedData(inputedData);
-                        var record = new Record();
-
-                        record.SetValues(convertedData);
-
-                        Task.Factory.StartNew(() =>
-                        {
-                            using (var db = new ApplicationContext())
-                            {
-                                db.Records.Add(record);
-                                db.SaveChanges();
-                            }
-                        });
-                    }
-
-                    else
-                    {
-                        new ErrorValues().ShowDialog();
-                    }
-
-                }, (obj) => Date is not null);
+                return _saveCommand ??= new RelayCommand(obj => SaveRecord(), obj => CheckPropertiesNull());
             }
+        }
+
+        private void SaveRecord()
+        {
+            
+            var inputedData = new InputedData(Date, Time, SugarValue, EatenBreadUnits, DeliveredInsulinUnits);
+
+            if (inputedData.IsCorrect)
+            {
+                var convertedData = new ConvertedData(inputedData);
+                var record = new Record();
+                var success = new Success();
+
+                record.SetValues(convertedData);
+
+                Task.Run(() =>
+                {
+                    using (var db = new ApplicationContext())
+                    {
+                        db.Records.Add(record);
+                        db.SaveChanges();
+                    }
+                });
+
+                ClearValues();
+                success.ShowDialog();
+            }
+
+            else
+            {
+                new ErrorValues().ShowDialog();
+            }
+        }
+
+        private bool CheckPropertiesNull()
+        {
+            return (
+
+                Date is not null
+                && Time is not null
+                && SugarValue is not null
+                && EatenBreadUnits is not null
+                && DeliveredInsulinUnits is not null
+            );
+        }
+
+        private void ClearValues()
+        {
+            Date = null;
+            Time = null;
+            SugarValue = null;
+            EatenBreadUnits = null;
+            DeliveredInsulinUnits = null;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
