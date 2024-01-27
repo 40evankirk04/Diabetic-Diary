@@ -117,7 +117,7 @@
             Margin="30,12,30,12"/>
 
         <TextBox x:Name="Date" Grid.Row="1" Style="{StaticResource TB}" FontFamily="Century Gothic"
-        Text="{Binding Date}"/>
+        Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock IsHitTestVisible="False" FontSize="11" Text="Дата dd.mm.yyyy"
                    Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Foreground="#FF797979" FontFamily="Century Gothic">
@@ -134,7 +134,7 @@
         </TextBlock>
 
         <TextBox x:Name="Time" Grid.Row="2" Style="{StaticResource TB}" FontFamily="Century Gothic"
-                 Text="{Binding Time}"/>
+                 Text="{Binding Time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock IsHitTestVisible="False" FontSize="11" Text="Время: hh:mm"
                    Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Foreground="#FF797979" FontFamily="Century Gothic">
@@ -151,7 +151,7 @@
         </TextBlock>
 
         <TextBox x:Name="SugarValue" Grid.Row="3" Style="{StaticResource TB}" FontFamily="Century Gothic"
-                 Text="{Binding SugarValue}"/>
+                 Text="{Binding SugarValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock IsHitTestVisible="False" FontSize="11" Text="Значение сахара"
                    Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Foreground="#FF797979" FontFamily="Century Gothic">
@@ -168,7 +168,7 @@
         </TextBlock>
 
         <TextBox x:Name="EatenBreadUnits" Grid.Row="4" Style="{StaticResource TB}" FontFamily="Century Gothic"
-                 Text="{Binding EatenBreadUnits}"/>
+                 Text="{Binding EatenBreadUnits, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock IsHitTestVisible="False" FontSize="11" Text="Кол-во ХЕ"
                    Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Foreground="#FF797979" FontFamily="Century Gothic">
@@ -185,7 +185,7 @@
         </TextBlock>
 
         <TextBox x:Name="DeliveredInsulinUnits" Grid.Row="5" Style="{StaticResource TB}" FontFamily="Century Gothic"
-                 Text="{Binding DeliveredInsulinUnits}"/>
+                 Text="{Binding DeliveredInsulinUnits, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock IsHitTestVisible="False" FontSize="11" Text="Кол-во инсулина"
                    Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Foreground="#FF797979" FontFamily="Century Gothic">
