@@ -5,7 +5,6 @@ using Diabetic_Diary.Models.Record_Data;
 using Diabetic_Diary.Models.Database;
 using Diabetic_Diary.Views;
 using System.Windows.Controls;
-using System.Globalization;
 
 namespace Diabetic_Diary.ViewModels
 {

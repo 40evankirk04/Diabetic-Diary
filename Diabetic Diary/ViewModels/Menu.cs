@@ -18,7 +18,7 @@ namespace Diabetic_Diary.ViewModels
         {
             get
             {
-                return _openHistoryWindowCommand ??= new RelayCommand(obj => OpenHistoryWindowAsync(), obj => true);
+                return _openHistoryWindowCommand ??= new RelayCommand(obj => OpenHistoryWindowAsync());
             }
         }
 
