@@ -1,4 +1,4 @@
-﻿<Window x:Class="Diabetic_Diary.Views.History"
+﻿<Window x:Class="Diabetic_Diary.Views.ErrorValues"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Medium"
@@ -10,10 +10,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Diabetic_Diary.ViewModels"
         mc:Ignorable="d"
-        Title="История" 
-        Height="450" Width="540" 
+        Title="Ошибка" 
+        Height="200" Width="300" 
         Icon="/Resource/blooddrop.ico" 
-        ResizeMode="NoResize" ShowInTaskbar="False">
+        ResizeMode="NoResize" 
+        ShowInTaskbar="False" 
+        WindowStartupLocation="CenterScreen" 
+        Topmost="True">
 
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -23,15 +26,28 @@
         </LinearGradientBrush>
     </Window.Background>
 
-    <Grid>
+    <Grid HorizontalAlignment="Center" Width="300" Margin="0,-15,0,0">
 
-        <DataGrid ItemsSource="{Binding Records}" 
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False"
-                  CanUserResizeRows="False"
-                  IsReadOnly="True" Foreground="#DDFF0000">
-        </DataGrid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="59"/>
+            <RowDefinition/>
+            <RowDefinition Height="59"/>
+
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+            Grid.Row="1" 
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Century Gothic" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Height="47" Width="220" 
+            TextWrapping="WrapWithOverflow" 
+            Text="Проверьте значения в соответствии с форматированием" 
+            Margin="0,24,0,0"/>
 
     </Grid>
-</Window>
 
+</Window>

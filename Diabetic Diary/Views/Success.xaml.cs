@@ -3,11 +3,11 @@
 namespace Diabetic_Diary.Views
 {
     /// <summary>
-    /// Логика взаимодействия для NewRecord.xaml
+    /// Логика взаимодействия для Success.xaml
     /// </summary>
-    public partial class NewRecord : Window
+    public partial class Success : Window
     {
-        public NewRecord()
+        public Success()
         {
             InitializeComponent();
         }

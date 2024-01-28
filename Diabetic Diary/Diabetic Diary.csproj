@@ -10,17 +10,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <None Remove="Resource\blooddrop.ico" />
+    <None Remove="Resource\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resource\icon.png">
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  
+    <Resource Include="Resource\blooddrop.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\Database\" />
+	  
+    <Resource Include="Resource\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+	  
   </ItemGroup>
 
 </Project>
