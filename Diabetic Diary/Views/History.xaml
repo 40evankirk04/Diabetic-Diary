@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="История" 
-        Height="450" Width="490" 
+        Height="450" Width="500.5" 
         Icon="/Resource/blooddrop.ico" 
         ResizeMode="NoResize" ShowInTaskbar="False">
 
@@ -46,6 +46,7 @@
                     </Setter>
 
                     <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="FontFamily" Value="Century Gothic"/>
 
                 </Style>
 
@@ -65,6 +66,7 @@
 
                     <Setter Property="HorizontalAlignment" Value="Center"/>
                     <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontFamily" Value="Century Gothic"/>
                     <Setter Property="Height" Value="35"/>
 
                 </Style>
