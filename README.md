@@ -1,4 +1,4 @@
-# Diabetic Diary (Dia Dia)
+# Dia Dia (Дневник диабетика)
 [![logo.png](https://i.postimg.cc/26pf4G33/logo.png)](https://postimg.cc/jWh9TzHr)
 
 ## Описание
@@ -7,6 +7,6 @@
 #### Использованный стек:
 + .NET 8.0
   + C# + WPF (.NET) с использованием архитектурного паттерна MVVM
-    + XAML Material Design Themes 4.9.0
+    + [XAML Material Design Themes 4.9.0](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit "GitHub репозиторий")
   + Entity Framework Core 8.0.1
     + SQLite
