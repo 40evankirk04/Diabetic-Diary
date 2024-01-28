@@ -7,6 +7,6 @@
 #### Использованный стек:
 + .NET 8.0
   + C# + WPF (.NET) с использованием архитектурного паттерна MVVM
-    + XAML Material Design Themes
-  + Entity Framework Core 8
+    + XAML Material Design Themes 4.9.0
+  + Entity Framework Core 8.0.1
     + SQLite
