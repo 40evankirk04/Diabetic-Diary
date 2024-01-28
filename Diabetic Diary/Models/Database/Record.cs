@@ -4,12 +4,12 @@ namespace Diabetic_Diary.Models.Database
 {
     public class Record
     {
-        public uint Id { get; set; }
-        public DateTime Date { get; set; }
-        public DateTime Time { get; set; }
-        public double SugarValue { get; set; }
-        public double EatenBreadUnits { get; set; }
-        public double DeliveredInsulinUnits { get; set; }
+        public uint Id { get; private set; }
+        public string Date { get; private set; }
+        public string Time { get; private set; }
+        public double SugarValue { get; private set; }
+        public double EatenBreadUnits { get; private set; }
+        public double DeliveredInsulinUnits { get; private set; }
 
         public void SetValues(ConvertedData convertedData)
         {
