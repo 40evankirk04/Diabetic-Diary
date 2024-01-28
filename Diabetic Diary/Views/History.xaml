@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="История" 
-        Height="450" Width="568.5" 
+        Height="450" Width="484" 
         Icon="/Resource/blooddrop.ico" 
         ResizeMode="NoResize" ShowInTaskbar="False">
 
@@ -28,43 +28,48 @@
                   CanUserResizeColumns="False"
                   CanUserSortColumns="False"
                   IsHitTestVisible="False"
-                  GridLinesVisibility="Horizontal">
+                  GridLinesVisibility="None"
+                  AutoGenerateColumns="False">
 
         <DataGrid.Resources>
 
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
 
-            <Setter Property="Foreground">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFFC4455" Offset="1"/>
-                        <GradientStop Color="#FFFF646F" Offset="0"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
+                    <Setter Property="Foreground">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFC4455" Offset="1"/>
+                                <GradientStop Color="#FFFF646F" Offset="0"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
 
-            </Setter>
-            </Style>
+                    </Setter>
 
-            <Style TargetType="{x:Type ScrollBar}">
-                <Setter Property="Background">
-                    <Setter.Value>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF404040" Offset="0"/>
-                            <GradientStop Color="Black" Offset="1"/>
-                            <GradientStop Color="#FF2B2B2B" Offset="0.5"/>
-                        </LinearGradientBrush>
-                    </Setter.Value>
-                </Setter>
-            </Style>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
 
-            <Style TargetType="{x:Type DataGridCell}">
+                </Style>
 
-                <Setter Property="HorizontalAlignment" Value="Center"/>
-                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Style TargetType="{x:Type ScrollBar}">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF404040" Offset="0"/>
+                                <GradientStop Color="Black" Offset="1"/>
+                                <GradientStop Color="#FF2B2B2B" Offset="0.5"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
 
-            </Style>
+                <Style TargetType="{x:Type DataGridCell}">
 
-        </DataGrid.Resources>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                    <Setter Property="Height" Value="35"/>
+
+                </Style>
+
+            </DataGrid.Resources>
 
             <DataGrid.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -80,6 +85,35 @@
                     <GradientStop Color="#FF2B2B2B" Offset="0.5"/>
                 </LinearGradientBrush>
             </DataGrid.Background>
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn
+                    Binding="{Binding Date}"
+                    Header="Дата"
+                    Width="*"/>
+
+                <DataGridTextColumn
+                    Binding="{Binding Time}"
+                    Header="Время"
+                    Width="*"/>
+
+                <DataGridTextColumn
+                    Binding="{Binding SugarValue}"
+                    Header="Сахар"
+                    Width="*"/>
+
+                <DataGridTextColumn
+                    Binding="{Binding EatenBreadUnits}"
+                    Header="ХЕ"
+                    Width="*"/>
+
+                <DataGridTextColumn
+                    Binding="{Binding DeliveredInsulinUnits}"
+                    Header="Инсулин"
+                    Width="*"/>
+
+            </DataGrid.Columns>
 
         </DataGrid>
     </Grid>
