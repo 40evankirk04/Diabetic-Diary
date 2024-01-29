@@ -10,8 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resource\blooddrop.ico" />
-    <None Remove="Resource\logo.png" />
+    <Content Include="Resource\blooddrop.ico" />
   </ItemGroup>
 
   <ItemGroup>
