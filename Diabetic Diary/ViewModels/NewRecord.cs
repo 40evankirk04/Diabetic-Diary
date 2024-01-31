@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using Diabetic_Diary.Models.Record_Data;
 using Diabetic_Diary.Models.Database;
 using Diabetic_Diary.Views;
-using System.Windows.Controls;
 
 namespace Diabetic_Diary.ViewModels
 {
@@ -20,20 +19,8 @@ namespace Diabetic_Diary.ViewModels
                 if (value == "")
                     _date = null;
                 else
-                    _date = value;
+                    _date = value.Trim();
 
-                OnPropertyChanged();
-            }
-        }
-
-        private TextBox? _dateTB;
-        public TextBox? DateTB
-        {
-            get => _dateTB;
-
-            set
-            {
-                _dateTB = value;
                 OnPropertyChanged();
             }
         }
@@ -48,8 +35,7 @@ namespace Diabetic_Diary.ViewModels
                 if (value == "")
                     _time = null;
                 else
-                    _time = value;
-
+                    _time = value.Trim();
                 OnPropertyChanged();
             }
         }
@@ -64,7 +50,7 @@ namespace Diabetic_Diary.ViewModels
                 if (value == "")
                     _sugarValue = null;
                 else
-                    _sugarValue = value;
+                    _sugarValue = value.Trim();
 
                 OnPropertyChanged();
             }
@@ -80,7 +66,7 @@ namespace Diabetic_Diary.ViewModels
                 if (value == "")
                     _eatenBreadUnits = null;
                 else
-                    _eatenBreadUnits = value;
+                    _eatenBreadUnits = value.Trim();
 
                 OnPropertyChanged();
             }
@@ -96,7 +82,7 @@ namespace Diabetic_Diary.ViewModels
                 if (value == "")
                     _deliveredInsulinUnits = null;
                 else
-                    _deliveredInsulinUnits = value;
+                    _deliveredInsulinUnits = value.Trim();
 
                 OnPropertyChanged();
             }
