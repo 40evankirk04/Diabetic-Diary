@@ -11,4 +11,4 @@
   + C# + WPF (.NET) с использованием архитектурного паттерна MVVM
     + [XAML Material Design Themes 4.9.0](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit "GitHub репозиторий")
     + Entity Framework Core 8.0.1
-  + SQLite
++ SQLite
